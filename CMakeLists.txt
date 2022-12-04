@@ -18,10 +18,9 @@ target_include_directories(
     PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
     )
 target_include_directories(
-    MyContainers 
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
+    MyContainers PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
     )
-
 
 target_include_directories(
     test_MyVector PRIVATE
@@ -53,8 +52,20 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         -Werror
         -pedantic
     )
+    target_compile_options(test_MyVector PRIVATE 
+        -g
+        -Wall
+        -Wextra
+        -Werror
+        -pedantic
+    )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(MyContainers PRIVATE
+        /EHsc
+        /W4
+        /WX
+    )
+    target_compile_options(test_MyVector PRIVATE
         /EHsc
         /W4
         /WX
