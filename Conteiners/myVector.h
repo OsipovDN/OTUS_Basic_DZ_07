@@ -27,6 +27,7 @@ public:
 
 	MyVector();
 	explicit MyVector(size_t count, const T& val);
+	explicit MyVector(const MyVector <T>& obj);
 	~MyVector() {
 		delete[]v_ptr;
 	}
@@ -36,6 +37,7 @@ public:
 	void erase(size_t pos);
 	size_t size()const { return size_vec; }
 	T& operator [](const size_t pos)const { return v_ptr[pos]; }
+	MyVector <T>& operator =(const  MyVector <T>& obj);
 
 	Iterator begin();
 	Iterator end();
@@ -53,6 +55,15 @@ MyVector<T>::MyVector(size_t count, const T& val) : MyVector() {
 	v_ptr = new T[size_vec];
 	for (size_t i = 0; i < size_vec; ++i) {
 		v_ptr[i] = val;
+	}
+}
+template <typename T>
+MyVector<T>::MyVector(const MyVector <T>& obj) {
+	delete[]v_ptr;
+	v_ptr = new T[obj.size()];
+	size_vec = obj.size();
+	for (size_t i = 0; i < size_vec; ++i) {
+		v_ptr[i] = obj[i];
 	}
 }
 
@@ -117,6 +128,16 @@ typename MyVector< T>::Iterator MyVector<T>::end() {
 	p.index = size();
 	p.cont = this;
 	return p;
+}
+template <typename T>
+typename MyVector <T>& MyVector<T>::operator =(const  MyVector <T>& obj) {
+	delete[]v_ptr;
+	v_ptr = new T[obj.size()];
+	size_vec = obj.size();
+	for (size_t i = 0; i < size_vec; ++i) {
+		v_ptr[i] = obj[i];
+	}
+	return *this;
 }
 
 template <typename T>
