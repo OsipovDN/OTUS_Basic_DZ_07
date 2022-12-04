@@ -1,9 +1,16 @@
 cmake_minimum_required (VERSION 3.8)
 
 project (MyContainers)
+find_package(GTest)
 
-add_executable (MyContainers 
-	myContainers.cpp
+add_executable (
+    MyContainers 
+    myContainers.cpp
+)
+
+add_executable (
+    test_MyVector
+    test/test_MyVector.cpp
 )
 
 target_include_directories(
@@ -14,6 +21,22 @@ target_include_directories(
     MyContainers 
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
     )
+
+
+target_include_directories(
+    test_MyVector PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_include_directories(
+    test_MyVector PRIVATE
+    ${GTEST_INCLUDE_DIRS}
+)
+
+target_link_libraries(
+    test_MyVector PRIVATE
+    ${GTEST_BOTH_LIBRARIES}
+)
 
 
 set_target_properties(MyContainers PROPERTIES
