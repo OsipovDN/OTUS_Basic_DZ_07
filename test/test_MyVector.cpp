@@ -90,33 +90,7 @@ TEST(Vector, EraseEnd) {
 }
 
 
-TEST(Vector, Size) {
-    // Arrange
-    MyVector <int> Vec;
-    // Assert
-    std::cout << "Checking the size of an empty container" << std::endl;
-    ASSERT_EQ(Vec.size(), 0);
 
-}
-
-TEST(Vector, PushBack) {
-    // Arrange
-    const size_t count = 10;
-    size_t val= 20;
-    MyVector <size_t> Vec;
-
-    // Act
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
-    Vec.push_back(val);
-
-    // Assert
-    std::cout << "Checking the size of container" << std::endl;
-    EXPECT_EQ(Vec.size(), (count+1));
-    std::cout << "Checking the element inserted at the end" << std::endl;
-    ASSERT_EQ(Vec[10], val);
-}
 
 TEST(Vector, InsertFront) {
     // Arrange
