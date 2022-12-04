@@ -25,7 +25,7 @@ target_include_directories(
 
 target_include_directories(
     test_MyVector PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
 )
 
 target_include_directories(
