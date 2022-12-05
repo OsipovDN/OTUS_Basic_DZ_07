@@ -6,7 +6,7 @@ public:
 	
 	class Iterator {
 	private:
-		MyVector<T>* cont;
+		ImplVector<T>* cont;
 		size_t index;
 	public:
 		
@@ -37,7 +37,7 @@ public:
 	void erase(size_t pos);
 	size_t size()const { return size_vec; }
 	T& operator [](const size_t pos)const { return v_ptr[pos]; }
-	MyVector <T>& operator =(const  ImplVector <T>& obj);
+	ImplVector <T>& operator =(const  ImplVector <T>& obj);
 
 	Iterator begin();
 	Iterator end();
@@ -117,7 +117,7 @@ void  ImplVector<T>::erase(size_t pos) {
 
 template <typename T>
 typename ImplVector<T>::Iterator ImplVector<T>::begin() {
-	MyVector<T>::Iterator p;
+	ImplVector<T>::Iterator p;
 	p.index = 0;
 	p.cont = this;
 	return p;
