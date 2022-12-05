@@ -26,7 +26,7 @@ public:
 	};
 
 	ImplVector();
-	explicit ImplVector(size_t count, const T& val);
+	ImplVector(size_t count, const T& val);
 	explicit ImplVector(const ImplVector <T>& obj);
 	~ImplVector() {
 		delete[]v_ptr;
@@ -38,6 +38,7 @@ public:
 	size_t size()const { return size_vec; }
 	T& operator [](const size_t pos)const { return v_ptr[pos]; }
 	ImplVector <T>& operator =(const  ImplVector <T>& obj);
+	bool operator ==(const ImplVector <T>& obj)const;
 
 	Iterator begin();
 	Iterator end();
@@ -138,6 +139,17 @@ typename ImplVector <T>& ImplVector<T>::operator =(const  ImplVector <T>& obj) {
 		v_ptr[i] = obj[i];
 	}
 	return *this;
+}
+
+template <typename T>
+bool ImplVector<T>::operator ==(const ImplVector <T>& obj)const {
+	if (size_vec != obj.size_vec)
+		retrn false;
+	for (size_t i = 0; i < size_vec; ++i) {
+		if (v_ptr[i] != obj[i])
+			return false;
+	}
+	return true;
 }
 
 template <typename T>
