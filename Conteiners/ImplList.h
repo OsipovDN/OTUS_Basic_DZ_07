@@ -2,7 +2,7 @@
 #include <iostream>
 
 template <typename T>
-class MyList {
+class ImplList {
 	struct Node
 	{
 		T val;
@@ -13,10 +13,10 @@ class MyList {
 	Node* last;
 	size_t size;
 public:
-	MyList() :first(nullptr), last(nullptr), size(0) {}
-	explicit MyList(const T& val);
-	explicit MyList(const size_t& count, const T& val);
-	~MyList();
+	ImplList() :first(nullptr), last(nullptr), size(0) {}
+	explicit ImplList(const T& val);
+	ImplList(const size_t& count, const T& val);
+	~ImplList();
 	bool is_empty()const;
 	void push_back(const T& val);
 	void push_front(const T& val);
@@ -29,12 +29,12 @@ public:
 
 
 template <typename T>
-MyList<T>::MyList(const T& val) :MyList() {
+ImplList<T>::ImplList(const T& val) :ImplList() {
 	first = last = new Node(val);
 	size += 1;
 }
 template <typename T>
-MyList<T>::MyList(const size_t& count, const T& val) :MyList() {
+ImplList<T>::ImplList(const size_t& count, const T& val) : ImplList() {
 	if (count == 0)
 		return;
 	first = last = new Node(val);
@@ -49,7 +49,7 @@ MyList<T>::MyList(const size_t& count, const T& val) :MyList() {
 }
 
 template <typename T>
-MyList<T>::~MyList() {
+ImplList<T>::~ImplList() {
 	Node* temp = first;
 	Node* buf=nullptr;
 	while (temp->next != nullptr) {
@@ -60,12 +60,12 @@ MyList<T>::~MyList() {
 }
 
 template <typename T>
-bool MyList<T>::is_empty()const {
+bool ImplList<T>::is_empty()const {
 	return (first == nullptr);
 }
 
 template <typename T>
-void MyList<T>::push_back(const T& val) {
+void ImplList<T>::push_back(const T& val) {
 	Node* temp = new Node(val);
 	if (is_empty()) {
 		first = last = temp;
@@ -78,7 +78,7 @@ void MyList<T>::push_back(const T& val) {
 }
 
 template <typename T>
-void MyList<T>::push_front(const T& val) {
+void ImplList<T>::push_front(const T& val) {
 	Node* temp = new Node(val);
 	if (is_empty()) {
 		first = last = temp;
@@ -90,7 +90,7 @@ void MyList<T>::push_front(const T& val) {
 }
 
 template <typename T>
-void MyList<T>::erase(const size_t& pos) {
+void ImplList<T>::erase(const size_t& pos) {
 	Node* temp = first;
 	Node* n=nullptr;
 	size_t i = 2;
@@ -105,7 +105,7 @@ void MyList<T>::erase(const size_t& pos) {
 }
 
 template <typename T>
-void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
+void ImplList<T>::insert(const size_t& pos, size_t count, const T& val) {
 	Node* temp = nullptr;
 	Node* n = nullptr;
 	if (count == 0)
@@ -139,7 +139,7 @@ void MyList<T>::insert(const size_t& pos, size_t count, const T& val) {
 }
 
 template <typename T>
-void MyList<T>::insert(const size_t& pos, const T& val) {
+void ImplList<T>::insert(const size_t& pos, const T& val) {
 	Node* temp = nullptr;
 	Node* n = nullptr;
 	if (is_empty() || pos == size)
@@ -159,7 +159,7 @@ void MyList<T>::insert(const size_t& pos, const T& val) {
 }
 
 template <typename T>
-void MyList<T>::print()const {
+void ImplList<T>::print()const {
 	Node* temp = first;
 	do {
 		std::cout << temp->val << " ";

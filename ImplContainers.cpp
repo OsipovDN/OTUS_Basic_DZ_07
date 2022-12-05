@@ -1,10 +1,10 @@
 #include "iostream"
-#include "myVector.h"
-#include "myList.h"
+#include "ImplVector.h"
+#include "ImplList.h"
 
 namespace conteiners {
 	template <typename T>
-	void print(MyVector <T>& v) {
+	void print(ImplVector <T>& v) {
 		for (size_t i = 0; i < v.size(); ++i) {
 			std::cout << v[i] << " ";
 		}
@@ -15,8 +15,8 @@ namespace conteiners {
 	void vector() {
 		std::cout << "–абота с контейнером vector" << std::endl;
 		std::cout << "»нициализаци€ пустого вектора и заполнение через push_back" << std::endl;
-		MyVector <int> vec1;
-		MyVector <int> vec2;
+		ImplVector <int> vec1;
+		ImplVector <int> vec2;
 		for (int i = 0; i < 10; ++i) {
 			vec1.push_back(i);
 			vec2.push_back(i * 2);
@@ -58,13 +58,13 @@ namespace conteiners {
 	void listCont() {
 		std::cout << "–абота с контейнером list" << std::endl;
 		std::cout << "»нициализаци€ конструктора дл€ создани€ n int узлов со значением 3" << std::endl;
-		MyList <int>lst(5, 3);
+		ImplList <int>lst(5, 3);
 		std::cout << "–азмер контейнера" << std::endl;
 		std::cout << "Size = " << lst.get_size() << std::endl;
 		lst.print();
 
 		std::cout << "»нициализаци€ пустого контейнера int и заполнение через push_back" << std::endl;
-		MyList <int>lst1;
+		ImplList <int>lst1;
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
@@ -96,8 +96,8 @@ namespace conteiners {
 
 	void iterVec() {
 		std::cout << "–абота с итераторами контейнера vector" << std::endl;
-		MyVector <int> vec1;
-		MyVector <int>::Iterator it_ptr;
+		ImplVector <int> vec1;
+		ImplVector <int>::Iterator it_ptr;
 		for (int i = 0; i < 10; ++i) 
 			vec1.push_back(i);
 		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr) 
