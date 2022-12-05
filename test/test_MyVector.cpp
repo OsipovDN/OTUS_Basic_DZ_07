@@ -77,78 +77,12 @@ TEST(Vector, EraseEnd) {
     // Act
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
-        if (i != (count - 1))
-            VecRes.push_back(i);
     }
     Vec.erase(10);
 
     // Assert
     std::cout << "Checking the size after deleting the last element" << std::endl;
     EXPECT_EQ(Vec.size(), size);
-    std::cout << "Checking after deletion with a sample" << std::endl;
-    ASSERT_EQ(Vec, VecRes);
-}
-
-
-
-
-TEST(Vector, InsertFront) {
-    // Arrange
-    const size_t count = 10;
-    size_t val = 20;
-    MyVector <size_t> Vec;
-
-    // Act
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
-    Vec.insert(1,val);
-
-    // Assert
-    std::cout << "Checking the size of container" << std::endl;
-    EXPECT_EQ(Vec.size(), (count + 1));
-    std::cout << "Checking the element inserted at the beginning" << std::endl;
-    ASSERT_EQ(Vec[0], val);
-}
-
-TEST(Vector, InsertInMiddle) {
-    // Arrange
-    const size_t count = 10;
-    size_t val = 30;
-    MyVector <size_t> Vec;
-
-    // Act
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
-    Vec.insert(6, val);
-    
-    // Assert
-    std::cout << "Checking the size of container" << std::endl;
-    EXPECT_EQ(Vec.size(), (count + 1));
-    std::cout << "Checking the element inserted at the middle" << std::endl;
-    ASSERT_EQ(Vec[5], val);
-}
-TEST(Vector, EraseEnd) {
-    // Arrange
-    const size_t count = 10;
-    size_t size = 9;
-    MyVector <size_t> Vec;
-    MyVector <size_t> VecRes;
-
-    // Act
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-        if (i != (count - 1))
-            VecRes.push_back(i);
-    }
-    Vec.erase(10);
-
-    // Assert
-    std::cout << "Checking the size after deleting the last element" << std::endl;
-    EXPECT_EQ(Vec.size(), size);
-    std::cout << "Checking after deletion with a sample" << std::endl;
-    ASSERT_EQ(Vec, VecRes);
 }
 
 int main(int argc, char** argv) {
