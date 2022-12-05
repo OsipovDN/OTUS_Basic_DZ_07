@@ -144,7 +144,7 @@ typename ImplVector <T>& ImplVector<T>::operator =(const  ImplVector <T>& obj) {
 template <typename T>
 bool ImplVector<T>::operator ==(const ImplVector <T>& obj)const {
 	if (size_vec != obj.size_vec)
-		retrn false;
+		return false;
 	for (size_t i = 0; i < size_vec; ++i) {
 		if (v_ptr[i] != obj[i])
 			return false;
