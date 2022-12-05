@@ -69,7 +69,7 @@ TEST(Vector, EraseEnd) {
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
         if (i != (count - 1))
-            Vec1.push_back(i);
+            VecRes.push_back(i);
     }
 
     // Act
@@ -77,7 +77,7 @@ TEST(Vector, EraseEnd) {
 
     // Assert
     std::cout << "Checking the size after deleting the last element" << std::endl;
-    ASSERT_TRUE(Vec==Vec1);
+    ASSERT_TRUE(Vec==VecRes);
 }
 
 
