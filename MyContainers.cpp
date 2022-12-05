@@ -16,8 +16,11 @@ namespace conteiners {
 		std::cout << "Работа с контейнером vector" << std::endl;
 		std::cout << "Инициализация пустого вектора и заполнение через push_back" << std::endl;
 		MyVector <int> vec1;
-		for (int i = 0; i < 10; ++i) 
+		MyVector <int> vec2;
+		for (int i = 0; i < 10; ++i) {
 			vec1.push_back(i);
+			vec2.push_back(i * 2);
+		}
 		print(vec1);
 		std::cout << vec1.size() << std::endl;
 
@@ -42,6 +45,14 @@ namespace conteiners {
 		vec1.push_back(30);
 		print(vec1);
 		std::cout << std::endl;
+
+		std::cout << "Контейнер Vec1 " << std::endl;
+		print(vec1);
+		std::cout << "Контейнер Vec2 " << std::endl;
+		print(vec2);
+		std::cout << "Присваиваем Vec1 значения Vec2 и выводим контейнер Vec1" << std::endl;
+		vec1 = vec2;
+		print(vec1);
 	}
 
 	void listCont() {
