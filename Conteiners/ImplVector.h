@@ -28,6 +28,7 @@ public:
 	ImplVector();
 	ImplVector(size_t count, const T& val);
 	explicit ImplVector(const ImplVector <T>& obj);
+	explicit ImplVector(ImplVector <T>&& obj) noexcept;
 	~ImplVector() {
 		delete[]v_ptr;
 	}
@@ -38,6 +39,7 @@ public:
 	size_t size()const { return size_vec; }
 	T& operator [](const size_t pos)const { return v_ptr[pos]; }
 	ImplVector <T>& operator =(const  ImplVector <T>& obj);
+	ImplVector <T>& operator =(ImplVector <T>&& obj) noexcept;
 	bool operator ==(const ImplVector <T>& obj)const;
 
 	Iterator begin();
@@ -58,7 +60,11 @@ ImplVector<T>::ImplVector(size_t count, const T& val) : ImplVector() {
 		v_ptr[i] = val;
 	}
 }
+
 template <typename T>
+ImplVector<T>::ImplVector(const ImplVector <T>& obj) :ImplVector(obj.size_vec, 0) {}
+
+/*template <typename T>
 ImplVector<T>::ImplVector(const ImplVector <T>& obj) {
 	delete[]v_ptr;
 	v_ptr = new T[obj.size()];
@@ -66,6 +72,14 @@ ImplVector<T>::ImplVector(const ImplVector <T>& obj) {
 	for (size_t i = 0; i < size_vec; ++i) {
 		v_ptr[i] = obj[i];
 	}
+}*/
+
+template <typename T>
+ImplVector<T>::ImplVector(ImplVector <T>&& obj)noexcept {
+	size_vec = obj.size_vec;
+	obj.size_vec = 0;
+	v_ptr = obj.v_ptr;
+	obj.v_ptr = nullptr;
 }
 
 template <typename T>
@@ -139,6 +153,12 @@ typename ImplVector <T>& ImplVector<T>::operator =(const  ImplVector <T>& obj) {
 		v_ptr[i] = obj[i];
 	}
 	return *this;
+}
+
+template <typename T>
+typename ImplVector <T>& ImplVector<T>::operator =(ImplVector <T>&& obj)noexcept {
+	ImplVector <T> temp{ std::move(obj) };
+	return *this=temp;
 }
 
 template <typename T>

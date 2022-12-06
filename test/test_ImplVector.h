@@ -153,9 +153,3 @@ TEST(Vector, GetSize) {
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(Vec.size(), size);
 }
-
-
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}

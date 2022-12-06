@@ -53,6 +53,12 @@ namespace conteiners {
 		std::cout << "ѕрисваиваем Vec1 значени€ Vec2 и выводим контейнер Vec1" << std::endl;
 		vec1 = vec2;
 		print(vec1);
+		print(vec2);
+		std::cout << "ѕеремещение в Vec1 значений Vec2 и выводим контейнер Vec1" << std::endl;
+		vec1 = std::move(vec2);
+		print(vec1);
+		std::cout <<"Size Vec2= " <<vec2.size() << std::endl;
+		
 	}
 
 	void listCont() {
