@@ -24,6 +24,8 @@ public:
 	void erase(const size_t& pos);
 	void insert(const size_t& pos, size_t count, const T& val);
 	void insert(const size_t& pos, const T& val);
+	//NEW
+	bool operator ==(const ImplList& obj)const;
 	void print()const;
 };
 
@@ -156,6 +158,21 @@ void ImplList<T>::insert(const size_t& pos, const T& val) {
 		temp->next = n;
 	}
 	size += 1;
+}
+
+template <typename T>
+bool ImplList<T> ::operator ==(const ImplList& obj)const {
+	Node* comp1=first;
+	Node* comp2=obj.first;
+	if (get_size() != obj.get_size()) 
+		return false;
+	while (comp1 != nullptr && comp2 != nullptr) {
+		if (comp1->val != comp2->val)
+			return false;
+		comp1 = comp1->next;
+		comp2= comp2->next;
+	} ;
+	return true;
 }
 
 template <typename T>

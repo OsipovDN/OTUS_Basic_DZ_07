@@ -28,6 +28,7 @@ public:
 	ImplVector();
 	ImplVector(size_t count, const T& val);
 	explicit ImplVector(const ImplVector <T>& obj);
+	//NEW
 	explicit ImplVector(ImplVector <T>&& obj) noexcept;
 	~ImplVector() {
 		delete[]v_ptr;
@@ -37,9 +38,12 @@ public:
 	void push_back(const T& val);
 	void erase(size_t pos);
 	size_t size()const { return size_vec; }
-	T& operator [](const size_t pos)const { return v_ptr[pos]; }
+	T& operator [](const size_t pos)const { return v_ptr[pos];
+	//NEW}
 	ImplVector <T>& operator =(const  ImplVector <T>& obj);
+	//NEW
 	ImplVector <T>& operator =(ImplVector <T>&& obj) noexcept;
+	//NEW
 	bool operator ==(const ImplVector <T>& obj)const;
 
 	Iterator begin();

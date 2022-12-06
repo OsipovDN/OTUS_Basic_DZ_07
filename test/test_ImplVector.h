@@ -8,24 +8,25 @@ TEST(Vector, InitializationContainer) {
     // Assert
     std::cout << "Checking the size of an empty container" << std::endl;
     ASSERT_EQ(Vec.size(), 0);
-
 }
 
 TEST(Vector, PushBack) {
     // Arrange
     const size_t count = 10;
     size_t val= 20;
+    size_t size = 11;
     ImplVector <size_t> Vec;
+
+    // Act
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
-
-    // Act
     Vec.push_back(val);
 
     // Assert
     std::cout << "Checking the element inserted at the end" << std::endl;
     ASSERT_EQ(Vec[10], val);
+    ASSERT_EQ(Vec.size(), size);
 }
 
 TEST(Vector, InsertFront) {
@@ -146,8 +147,6 @@ TEST(Vector, GetSize) {
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
-
-    // Act
 
     // Assert
     std::cout << "Checking the size of the container" << std::endl;

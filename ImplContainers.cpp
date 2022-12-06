@@ -109,6 +109,18 @@ namespace conteiners {
 		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr) 
 			std::cout << *it_ptr << " ";
 	}
+
+	void comparison() {
+		ImplList <int>lst1;
+		ImplList <int>lst2;
+		for (int i = 0; i < 10; ++i) {
+			lst1.push_back(i);
+			lst2.push_back(i);
+		}
+		lst1.print();
+		lst2.print();
+		std::cout << (lst1 == lst2) << std::endl;
+	}
 }
 
 int main() {
@@ -116,6 +128,9 @@ int main() {
 	conteiners::vector();
 	conteiners::listCont();
 	conteiners::iterVec();
+	//NEW
+	conteiners::comparison();
+	
 
 	return 0;
 }
