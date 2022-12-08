@@ -52,14 +52,16 @@ ImplList<T>::ImplList(const size_t& count, const T& val) : ImplList() {
 
 template <typename T>
 ImplList<T>::~ImplList() {
-	Node* temp = first;
-	Node* buf=nullptr;
-	while (temp->next != nullptr) {
-		buf = temp->next;
-		delete temp;
-		temp = buf;
+	if (first != nullptr) {
+		Node* temp = first;
+		Node* buf = nullptr;
+		while (temp->next != nullptr) {
+			buf = temp->next;
+			delete temp;
+			temp = buf;
+		}
+		temp = nullptr;
 	}
-	temp = nullptr;
 }
 
 template <typename T>

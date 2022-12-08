@@ -111,6 +111,7 @@ namespace conteiners {
 			vec1.push_back(i);
 		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr)
 			std::cout << *it_ptr << " ";
+		std::cout << std::endl;
 	}
 
 	void comparison() {
