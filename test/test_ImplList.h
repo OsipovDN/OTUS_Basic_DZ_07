@@ -2,70 +2,71 @@
 #include "ImplList.h"
 #include <iostream>
 
+struct ListFixture : public testing::Test {
+    const int count = 10;
+    size_t val = 20;
+    size_t size = 11;
+    ImplList <size_t> lst;
+
+    static void SetUpTestSuite() {}
+    static void TearDownTestSuite() {}
+
+    void SetUp() override {
+        for (size_t i = 0; i < count; ++i) {
+            lst.push_back(i);
+        }
+    }
+    void TearDown() override {}
+
+};
+
 TEST(List, InitializationContainer) {
 	// Arrange
-    ImplList <int> lst;
+    ImplList <size_t> lst;
     size_t size = 0;
 	// Assert
 	std::cout << "Checking the size of an empty container" << std::endl;
     EXPECT_EQ(lst.get_size(), size);
 }
 
-TEST(List, PushBack) {
-    // Arrange
-    const int count = 10;
-    int val = 20;
-    size_t size = 11;
-    ImplList <int> lst;
-    // Act
-    for (int i = 0; i < count; ++i) {
-        lst.push_back(i);
-    }
+TEST_F(ListFixture, PushBack) {
+    
     lst.push_back(val);
     // Assert
     std::cout << "Checking the element inserted at the end" << std::endl;
-    EXPECT_EQ(lst.get_size(), size);
+    EXPECT_EQ(lst.get_size(), ListFixture::size);
     ASSERT_FALSE(lst.is_empty());
 }
 
-TEST(List, InsertFront) {
+TEST_F(ListFixture, InsertFront) {
     // Arrange
-    const int count = 10;
-    int val = 20;
-    int size = 11;
-    ImplList <int> lst;
-    ImplList <int> Reslst;
-    Reslst.push_back(val);
-    for (int i = 0; i < count; ++i) {
-        lst.push_back(i);
+    ImplList <size_t> Reslst;
+    Reslst.push_back(ListFixture::val);
+    for (size_t i = 0; i < ListFixture::count; ++i) {
         Reslst.push_back(i);
     }
     // Act
-    lst.insert(1, val);
+    lst.insert(1, ListFixture::val);
     // Assert
     std::cout << "Checking the element inserted at the beginning" << std::endl;
-    EXPECT_EQ(lst.get_size(), size);
+    EXPECT_EQ(lst.get_size(), ListFixture::size);
     ASSERT_TRUE(Reslst == lst);
 }
 
-TEST(List, InsertInMiddle) {
+TEST_F(ListFixture, InsertInMiddle) {
     // Arrange
-    const int count = 10;
-    int val = 30;
-    size_t size = 11;
-    ImplList <int> lst;
-    ImplList <int> Reslst;
-    for (int i = 0; i < count; ++i) {
+
+    ImplList <size_t> Reslst;
+    for (size_t i = 0; i < ListFixture::count; ++i) {
         if (i == 5)
-            Reslst.push_back(val);
-        lst.push_back(i);
+            Reslst.push_back(ListFixture::val);
         Reslst.push_back(i); 
     }
     // Act    
-    lst.insert(6, val);
+    lst.insert(6, ListFixture::val);
     // Assert
     std::cout << "Checking the element inserted at the middle" << std::endl;
-    EXPECT_EQ(lst.get_size(), size);
+    EXPECT_EQ(lst.get_size(), ListFixture::size);
     EXPECT_FALSE(lst.is_empty());
     ASSERT_TRUE(Reslst == lst);
 }
