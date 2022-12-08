@@ -2,6 +2,22 @@
 #include "ImplVector.h"
 #include <iostream>
 
+struct VectorFixture : public testing::Test {
+    const size_t count = 10;
+    size_t val = 20;
+    size_t size = 11;
+    ImplVector <size_t> Vec;
+    static void SetUpTestSuite() {}
+    static void TearDownTestSuite() {}
+
+    void SetUp() override {
+        for (size_t i = 0; i < count; ++i) {
+            Vec.push_back(i);
+        }
+    }
+    void TearDown() override {}
+};
+
 TEST(Vector, InitializationContainer) {
     // Arrange
     ImplVector <int> Vec;
@@ -10,51 +26,29 @@ TEST(Vector, InitializationContainer) {
     ASSERT_EQ(Vec.size(), 0);
 }
 
-TEST(Vector, PushBack) {
-    // Arrange
-    const size_t count = 10;
-    size_t val= 20;
-    size_t size = 11;
-    ImplVector <size_t> Vec;
+TEST_F(VectorFixture, PushBack) {
     // Act
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
-    Vec.push_back(val);
+    Vec.push_back(VectorFixture::val);
     // Assert
     std::cout << "Checking the element inserted at the end" << std::endl;
-    EXPECT_EQ(Vec[10], val);
-    ASSERT_EQ(Vec.size(), size);
+    EXPECT_EQ(Vec[10], VectorFixture::val);
+    ASSERT_EQ(Vec.size(), VectorFixture::size);
 }
 
-TEST(Vector, InsertFront) {
-    // Arrange
-    const size_t count = 10;
-    size_t val = 20;
-    ImplVector <size_t> Vec;
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
+TEST_F(VectorFixture, InsertFront) {
     // Act
-    Vec.insert(1,val);
+    Vec.insert(1, VectorFixture::val);
     // Assert
     std::cout << "Checking the element inserted at the beginning" << std::endl;
-    ASSERT_EQ(Vec[0], val);
+    ASSERT_EQ(Vec[0], VectorFixture::val);
 }
 
-TEST(Vector, InsertInMiddle) {
-    // Arrange
-    const size_t count = 10;
-    size_t val = 30;
-    ImplVector <size_t> Vec;
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
+TEST_F(VectorFixture, InsertInMiddle) {
     // Act
-    Vec.insert(6, val);
+    Vec.insert(6, VectorFixture::val);
     // Assert
     std::cout << "Checking the element inserted at the middle" << std::endl;
-    ASSERT_EQ(Vec[5], val);
+    ASSERT_EQ(Vec[5], VectorFixture::val);
 }
 TEST(Vector, EraseEnd) {
     // Arrange
@@ -126,14 +120,9 @@ TEST(Vector, OperatorGetElement) {
     ASSERT_EQ(Vec.size(),val);
 }
 
-TEST(Vector, GetSize) {
+TEST_F(VectorFixture, GetSize) {
     // Arrange
-    const size_t count = 10;
-    const size_t size = 10;
-    ImplVector <size_t> Vec;
-    for (size_t i = 0; i < count; ++i) {
-        Vec.push_back(i);
-    }
+    size = 10;
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(Vec.size(), size);
