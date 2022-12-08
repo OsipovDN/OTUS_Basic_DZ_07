@@ -4,11 +4,11 @@
 
 TEST(List, InitializationContainer) {
 	// Arrange
-	ImplList <int> lst;
+    ImplList <int> lst;
     size_t size = 0;
 	// Assert
 	std::cout << "Checking the size of an empty container" << std::endl;
-    ASSERT_TRUE(lst.get_size()==size);
+    EXPECT_EQ(lst.get_size(), size);
 }
 
 TEST(List, PushBack) {
@@ -99,7 +99,7 @@ TEST(List, EraseFront) {
         lst.push_back(i);   
     }
     // Act
-    lst.erase(10);
+    lst.erase(1);
     // Assert
     std::cout << "Checking the size after deleting the last element" << std::endl;
     EXPECT_EQ(lst.get_size(), lstRes.get_size());
@@ -134,5 +134,5 @@ TEST(List, GetSize) {
     }
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
-    ASSERT_EQ(lst.size(), size);
+    ASSERT_EQ(lst.get_size(), size);
 }
