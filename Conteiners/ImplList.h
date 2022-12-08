@@ -16,7 +16,7 @@ public:
 	ImplList() :first(nullptr), last(nullptr), size(0) {}
 	explicit ImplList(const T& val);
 	ImplList(const size_t& count, const T& val);
-	~ImplList();
+	virtual ~ImplList();
 	bool is_empty()const;
 	void push_back(const T& val);
 	void push_front(const T& val);
