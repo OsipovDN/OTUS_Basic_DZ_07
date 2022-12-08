@@ -16,16 +16,14 @@ TEST(Vector, PushBack) {
     size_t val= 20;
     size_t size = 11;
     ImplVector <size_t> Vec;
-
     // Act
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
     Vec.push_back(val);
-
     // Assert
     std::cout << "Checking the element inserted at the end" << std::endl;
-    ASSERT_EQ(Vec[10], val);
+    EXPECT_EQ(Vec[10], val);
     ASSERT_EQ(Vec.size(), size);
 }
 
@@ -39,7 +37,6 @@ TEST(Vector, InsertFront) {
     }
     // Act
     Vec.insert(1,val);
-
     // Assert
     std::cout << "Checking the element inserted at the beginning" << std::endl;
     ASSERT_EQ(Vec[0], val);
@@ -53,10 +50,8 @@ TEST(Vector, InsertInMiddle) {
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
-
     // Act
     Vec.insert(6, val);
-    
     // Assert
     std::cout << "Checking the element inserted at the middle" << std::endl;
     ASSERT_EQ(Vec[5], val);
@@ -71,10 +66,8 @@ TEST(Vector, EraseEnd) {
         if (i != (count - 1))
             VecRes.push_back(i);
     }
-
     // Act
     Vec.erase(10);
-
     // Assert
     std::cout << "Checking the size after deleting the last element" << std::endl;
     ASSERT_TRUE(Vec==VecRes);
@@ -90,10 +83,8 @@ TEST(Vector, EraseFront) {
         if (i != 0)
             VecRes.push_back(i);
     }
-
     // Act
     Vec.erase(1);
-
     // Assert
     std::cout << "Checking the size after deleting the first element" << std::endl;
     ASSERT_TRUE(Vec == VecRes);
@@ -109,10 +100,8 @@ TEST(Vector, EraseMidlle) {
         if (i != 5)
             VecRes.push_back(i);
     }
-
     // Act
     Vec.erase(6);
-
     // Assert
     std::cout << "Checking the removal of an element from the middle" << std::endl;
     ASSERT_TRUE(Vec == VecRes);
@@ -126,14 +115,12 @@ TEST(Vector, OperatorGetElement) {
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
-
     // Act
     for (size_t i = 0; i < count; ++i) {
         if (Vec[i] != i) 
             break;
         val++;
     }
-
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(Vec.size(),val);
@@ -147,7 +134,6 @@ TEST(Vector, GetSize) {
     for (size_t i = 0; i < count; ++i) {
         Vec.push_back(i);
     }
-
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(Vec.size(), size);
