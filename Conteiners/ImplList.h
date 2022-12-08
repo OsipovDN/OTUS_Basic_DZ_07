@@ -59,6 +59,7 @@ ImplList<T>::~ImplList() {
 		delete temp;
 		temp = buf;
 	}
+	temp = nullptr;
 }
 
 template <typename T>

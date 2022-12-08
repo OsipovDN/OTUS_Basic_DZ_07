@@ -138,3 +138,40 @@ TEST(Vector, GetSize) {
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(Vec.size(), size);
 }
+
+TEST(Vector, CopyVector) {
+    // Arrange
+    size_t count = 10;
+    ImplVector <size_t> vec1;
+    ImplVector <size_t> vec2;
+    for (size_t i = 0; i < count; ++i) {
+        vec1.push_back(i);
+        vec2.push_back(i*2);
+    }
+    vec1.push_back(10);
+    //Act
+    vec1 = vec2;
+    // Assert
+    std::cout << "Checking the copy of the container" << std::endl;
+    ASSERT_EQ(vec1, vec3);
+}
+
+TEST(Vector, MoveCopyVector) {
+    // Arrange
+    size_t count = 10;
+
+    ImplVector <size_t> vec1;
+    ImplVector <size_t> vec2;
+    ImplVector <size_t> vec3;
+    for (size_t i = 0; i < count; ++i) {
+        vec1.push_back(i);
+        vec2.push_back(i * 2);
+    }
+    vec1.push_back(10);
+    //Act
+    vec3 = vec2;
+    vec1 = std::move(vec2);
+    // Assert
+    std::cout << "Checking the move copy of the container" << std::endl;
+    ASSERT_EQ(vec1,vec3);
+}
