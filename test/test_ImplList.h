@@ -8,7 +8,6 @@ TEST(List, InitializationContainer) {
     size_t size = 0;
 	// Assert
 	std::cout << "Checking the size of an empty container" << std::endl;
-    EXPECT_THROW(lst.get_size());
     ASSERT_TRUE(lst.get_size()==size);
 }
 
@@ -27,7 +26,6 @@ TEST(List, PushBack) {
     std::cout << "Checking the element inserted at the end" << std::endl;
     EXPECT_EQ(lst.get_size(), size);
     ASSERT_FALSE(lst.is_empty());
-
 }
 
 TEST(List, InsertFront) {
@@ -124,25 +122,6 @@ TEST(List, EraseMidlle) {
     std::cout << "Checking the size after deleting the last element" << std::endl;
     EXPECT_EQ(lst.get_size(), lstRes.get_size());
     ASSERT_TRUE(lst == lstRes);
-}
-
-TEST(List, OperatorGetElement) {
-    // Arrange
-    const size_t count = 10;
-    size_t val = 0;
-    ImplList <size_t> lst;
-    for (size_t i = 0; i < count; ++i) {
-        lst.push_back(i);
-    }
-    // Act
-    for (size_t i = 0; i < count; ++i) {
-        if (lst[i] != i)
-            break;
-        val++;
-    }
-    // Assert
-    std::cout << "Checking the size of the container" << std::endl;
-    ASSERT_EQ(Vec.size(), val);
 }
 
 TEST(List, GetSize) {
