@@ -6,14 +6,12 @@ find_package(GTest)
 add_executable (
     ImplemContainers
     ImplContainers.cpp
-)
+    )
 
 add_executable (
     test_Containers
     test/test_Containers.cpp
-    test/test_ImplVector.h
-    test/test_ImplList.h
-     )
+    )
 
 target_include_directories(
     ImplemContainers
@@ -27,6 +25,10 @@ target_include_directories(
 target_include_directories(
     test_Containers PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
+)
+target_include_directories(
+    test_Containers PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/test
 )
 
 target_include_directories(

@@ -38,8 +38,8 @@ public:
 	void push_back(const T& val);
 	void erase(size_t pos);
 	size_t size()const { return size_vec; }
-	T& operator [](const size_t pos)const { return v_ptr[pos];
-	//NEW}
+	T& operator [](const size_t pos)const { return v_ptr[pos]; }
+	//NEW
 	ImplVector <T>& operator =(const  ImplVector <T>& obj);
 	//NEW
 	ImplVector <T>& operator =(ImplVector <T>&& obj) noexcept;
@@ -227,4 +227,3 @@ typename ImplVector<T>::Iterator ImplVector<T>::Iterator::operator--() {
 		index = 0;
 	return *this;
 }
-

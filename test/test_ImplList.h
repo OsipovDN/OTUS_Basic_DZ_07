@@ -9,7 +9,7 @@ TEST(List, InitializationContainer) {
 
 	// Assert
 	std::cout << "Checking the size of an empty container" << std::endl;
-	ASSERT_EQ(lst.get_size(), size);
+	ASSERT_EQ(lst.get_size(),size);
 }
 
 TEST(List, PushBack) {
@@ -62,13 +62,14 @@ TEST(List, InsertInMiddle) {
     ImplList <int> lst;
     ImplList <int> Reslst;
     for (int i = 0; i < count; ++i) {
+        if (i == 5)
+            Reslst.push_back(val);
         lst.push_back(i);
-        Reslst.push_back(i);
+        Reslst.push_back(i); 
         if(i==6)
             Reslst.push_back(val);
     }
-    // Act
-    lst.insert(6, val);
+    // Act    
 
     // Assert
     std::cout << "Checking the element inserted at the middle" << std::endl;

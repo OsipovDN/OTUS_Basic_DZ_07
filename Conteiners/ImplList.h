@@ -126,7 +126,7 @@ void ImplList<T>::insert(const size_t& pos, size_t count, const T& val) {
 	else {
 		temp = first;
 		size_t i = 2;	//отсчет со второго элемента
-		while (i != pos) {
+		while (i <pos) {
 			temp = temp->next;
 			i++;
 		}
@@ -144,8 +144,12 @@ template <typename T>
 void ImplList<T>::insert(const size_t& pos, const T& val) {
 	Node* temp = nullptr;
 	Node* n = nullptr;
-	if (is_empty() || pos == size)
+	if (is_empty()) {
 		push_back(val);
+	}
+	else if (pos == 1) {
+		push_front(val);
+	}
 	else {
 		temp = first;
 		size_t i = 2;	//отсчет со второго элемента
@@ -156,8 +160,8 @@ void ImplList<T>::insert(const size_t& pos, const T& val) {
 		n = new Node(val);
 		n->next = temp->next;
 		temp->next = n;
+		size += 1;
 	}
-	size += 1;
 }
 
 template <typename T>
@@ -170,8 +174,8 @@ bool ImplList<T> ::operator ==(const ImplList& obj)const {
 		if (comp1->val != comp2->val)
 			return false;
 		comp1 = comp1->next;
-		comp2= comp2->next;
-	} ;
+		comp2 = comp2->next;
+	}
 	return true;
 }
 

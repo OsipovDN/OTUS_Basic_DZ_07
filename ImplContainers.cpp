@@ -63,6 +63,9 @@ namespace conteiners {
 
 	void listCont() {
 		std::cout << "Работа с контейнером list" << std::endl;
+		std::cout << "Инициализация пустого контейнера" << std::endl;
+		ImplList <int> lst2;
+		std::cout << lst2.get_size() << std::endl;
 		std::cout << "Инициализация конструктора для создания n int узлов со значением 3" << std::endl;
 		ImplList <int>lst(5, 3);
 		std::cout << "Размер контейнера" << std::endl;
@@ -124,12 +127,13 @@ namespace conteiners {
 }
 
 int main() {
-
+	system("chcp 1251>null");
 	conteiners::vector();
 	conteiners::listCont();
 	conteiners::iterVec();
 	//NEW
 	conteiners::comparison();
+
 
 	return 0;
 }
