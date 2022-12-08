@@ -57,8 +57,8 @@ namespace conteiners {
 		std::cout << "Перемещение в Vec1 значений Vec2 и выводим контейнер Vec1" << std::endl;
 		vec1 = std::move(vec2);
 		print(vec1);
-		std::cout <<"Size Vec2= " <<vec2.size() << std::endl;
-		
+		std::cout << "Size Vec2= " << vec2.size() << std::endl;
+
 	}
 
 	void listCont() {
@@ -74,7 +74,7 @@ namespace conteiners {
 		lst1.push_back(2);
 		lst1.push_back(3);
 		lst1.push_back(4);
-		std::cout<<"Size = " << lst1.get_size() << std::endl;
+		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
 		std::cout << "Добавление элемента 2 в позицию 3" << std::endl;
@@ -104,9 +104,9 @@ namespace conteiners {
 		std::cout << "Работа с итераторами контейнера vector" << std::endl;
 		ImplVector <int> vec1;
 		ImplVector <int>::Iterator it_ptr;
-		for (int i = 0; i < 10; ++i) 
+		for (int i = 0; i < 10; ++i)
 			vec1.push_back(i);
-		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr) 
+		for (it_ptr = vec1.begin(); it_ptr != vec1.end(); ++it_ptr)
 			std::cout << *it_ptr << " ";
 	}
 
@@ -124,13 +124,12 @@ namespace conteiners {
 }
 
 int main() {
-	
+
 	conteiners::vector();
 	conteiners::listCont();
 	conteiners::iterVec();
 	//NEW
 	conteiners::comparison();
-	
 
 	return 0;
 }
