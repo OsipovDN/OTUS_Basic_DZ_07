@@ -153,7 +153,7 @@ TEST(Vector, CopyVector) {
     vec1 = vec2;
     // Assert
     std::cout << "Checking the copy of the container" << std::endl;
-    ASSERT_EQ(vec1, vec3);
+    ASSERT_EQ(vec1, vec2);
 }
 
 TEST(Vector, MoveCopyVector) {

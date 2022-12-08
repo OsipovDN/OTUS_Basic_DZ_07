@@ -7,7 +7,7 @@ class ImplList {
 	{
 		T val;
 		Node* next;
-		Node(const T& count) :val(count), next(nullptr){}
+		Node(const T& count) :val(count),next(nullptr){}
 	};
 	Node* first;
 	Node* last;

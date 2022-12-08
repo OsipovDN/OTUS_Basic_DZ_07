@@ -1,4 +1,4 @@
-#include "iostream"
+ï»¿#include "iostream"
 #include "ImplVector.h"
 #include "ImplList.h"
 
@@ -13,8 +13,8 @@ namespace conteiners {
 
 
 	void vector() {
-		std::cout << "Ðàáîòà ñ êîíòåéíåðîì vector" << std::endl;
-		std::cout << "Èíèöèàëèçàöèÿ ïóñòîãî âåêòîðà è çàïîëíåíèå ÷åðåç push_back" << std::endl;
+		std::cout << "Ð Ð°Ð±Ð¾Ñ‚Ð° Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð¾Ð¼ vector" << std::endl;
+		std::cout << "Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿ÑƒÑÑ‚Ð¾Ð³Ð¾ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° Ð¸ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ñ‡ÐµÑ€ÐµÐ· push_back" << std::endl;
 		ImplVector <int> vec1;
 		ImplVector <int> vec2;
 		for (int i = 0; i < 10; ++i) {
@@ -24,7 +24,7 @@ namespace conteiners {
 		print(vec1);
 		std::cout << vec1.size() << std::endl;
 
-		std::cout << "Óäàëåíèå òðåòüåãî, ïÿòîãî è ñåäüìîãî ýëåìåíòà" << std::endl;
+		std::cout << "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ñ‚Ñ€ÐµÑ‚ÑŒÐµÐ³Ð¾, Ð¿ÑÑ‚Ð¾Ð³Ð¾ Ð¸ ÑÐµÐ´ÑŒÐ¼Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°" << std::endl;
 		vec1.erase(3);
 		std::cout << vec1.size() << std::endl;
 		vec1.erase(4);
@@ -33,28 +33,28 @@ namespace conteiners {
 		std::cout << vec1.size() << std::endl;
 		print(vec1);
 
-		std::cout << "Äîáàâëåíèå ýëåìåíòà 10 â íà÷àëî âåêòîðà" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° 10 Ð² Ð½Ð°Ñ‡Ð°Ð»Ð¾ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°" << std::endl;
 		vec1.insert(1, 10);
 		print(vec1);
 
-		std::cout << "Äîáàâëåíèå ÷èñëà 20 â ñåðåäèíó êîíòåéíåðà" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ñ‡Ð¸ÑÐ»Ð° 20 Ð² ÑÐµÑ€ÐµÐ´Ð¸Ð½Ñƒ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°" << std::endl;
 		vec1.insert((static_cast <size_t>(vec1.size() / 2)) + 1, 20);
 		print(vec1);
 
-		std::cout << "Äîáàâëåíèå ýëåìåíòà 30 â êîíåö âåêòîðà" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° 30 Ð² ÐºÐ¾Ð½ÐµÑ† Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°" << std::endl;
 		vec1.push_back(30);
 		print(vec1);
 		std::cout << std::endl;
 
-		std::cout << "Êîíòåéíåð Vec1 " << std::endl;
+		std::cout << "ÐšÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€ Vec1 " << std::endl;
 		print(vec1);
-		std::cout << "Êîíòåéíåð Vec2 " << std::endl;
+		std::cout << "ÐšÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€ Vec2 " << std::endl;
 		print(vec2);
-		std::cout << "Ïðèñâàèâàåì Vec1 çíà÷åíèÿ Vec2 è âûâîäèì êîíòåéíåð Vec1" << std::endl;
+		std::cout << "ÐŸÑ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°ÐµÐ¼ Vec1 Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Vec2 Ð¸ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€ Vec1" << std::endl;
 		vec1 = vec2;
 		print(vec1);
 		print(vec2);
-		std::cout << "Ïåðåìåùåíèå â Vec1 çíà÷åíèé Vec2 è âûâîäèì êîíòåéíåð Vec1" << std::endl;
+		std::cout << "ÐŸÐµÑ€ÐµÐ¼ÐµÑ‰ÐµÐ½Ð¸Ðµ Ð² Vec1 Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Vec2 Ð¸ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ð¼ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€ Vec1" << std::endl;
 		vec1 = std::move(vec2);
 		print(vec1);
 		std::cout << "Size Vec2= " << vec2.size() << std::endl;
@@ -62,17 +62,17 @@ namespace conteiners {
 	}
 
 	void listCont() {
-		std::cout << "Ðàáîòà ñ êîíòåéíåðîì list" << std::endl;
-		std::cout << "Èíèöèàëèçàöèÿ ïóñòîãî êîíòåéíåðà" << std::endl;
+		std::cout << "Ð Ð°Ð±Ð¾Ñ‚Ð° Ñ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð¾Ð¼ list" << std::endl;
+		std::cout << "Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿ÑƒÑÑ‚Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°" << std::endl;
 		ImplList <int> lst2;
 		std::cout << lst2.get_size() << std::endl;
-		std::cout << "Èíèöèàëèçàöèÿ êîíñòðóêòîðà äëÿ ñîçäàíèÿ n int óçëîâ ñî çíà÷åíèåì 3" << std::endl;
+		std::cout << "Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð° Ð´Ð»Ñ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ n int ÑƒÐ·Ð»Ð¾Ð² ÑÐ¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÐµÐ¼ 3" << std::endl;
 		ImplList <int>lst(5, 3);
-		std::cout << "Ðàçìåð êîíòåéíåðà" << std::endl;
+		std::cout << "Ð Ð°Ð·Ð¼ÐµÑ€ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°" << std::endl;
 		std::cout << "Size = " << lst.get_size() << std::endl;
 		lst.print();
 
-		std::cout << "Èíèöèàëèçàöèÿ ïóñòîãî êîíòåéíåðà int è çàïîëíåíèå ÷åðåç push_back" << std::endl;
+		std::cout << "Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð¿ÑƒÑÑ‚Ð¾Ð³Ð¾ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð° int Ð¸ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ñ‡ÐµÑ€ÐµÐ· push_back" << std::endl;
 		ImplList <int>lst1;
 		lst1.push_back(2);
 		lst1.push_back(3);
@@ -80,22 +80,22 @@ namespace conteiners {
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		std::cout << "Äîáàâëåíèå ýëåìåíòà 2 â ïîçèöèþ 3" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° 2 Ð² Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ 3" << std::endl;
 		lst1.insert(3, 2);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		std::cout << "Äîáàâëåíèå â ïîçèöèþ 2 ÷åòûðåõ ýëåìåíòîâ 1" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð² Ð¿Ð¾Ð·Ð¸Ñ†Ð¸ÑŽ 2 Ñ‡ÐµÑ‚Ñ‹Ñ€ÐµÑ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² 1" << std::endl;
 		lst1.insert(2, 4, 1);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		std::cout << "Äîáàâëåíèå ýëåìåíòà â íà÷àëî ñïèñêà" << std::endl;
+		std::cout << "Ð”Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð² Ð½Ð°Ñ‡Ð°Ð»Ð¾ ÑÐ¿Ð¸ÑÐºÐ°" << std::endl;
 		lst1.push_front(10);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 
-		std::cout << "Óäàëåíèå 2-îãî ýëåìåíòà èç ñïèñêà" << std::endl;
+		std::cout << "Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ 2-Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°" << std::endl;
 		lst1.erase(2);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
@@ -104,7 +104,7 @@ namespace conteiners {
 
 
 	void iterVec() {
-		std::cout << "Ðàáîòà ñ èòåðàòîðàìè êîíòåéíåðà vector" << std::endl;
+		std::cout << "Ð Ð°Ð±Ð¾Ñ‚Ð° Ñ Ð¸Ñ‚ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð°Ð¼Ð¸ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð° vector" << std::endl;
 		ImplVector <int> vec1;
 		ImplVector <int>::Iterator it_ptr;
 		for (int i = 0; i < 10; ++i)
@@ -124,12 +124,16 @@ namespace conteiners {
 		lst2.print();
 		std::cout << (lst1 == lst2) << std::endl;
 	}
+
 }
+
+
 
 int main() {
 	system("chcp 1251>null");
 	conteiners::vector();
 	conteiners::listCont();
+	conteiners::iterVec();
 	conteiners::iterVec();
 	//NEW
 	conteiners::comparison();
