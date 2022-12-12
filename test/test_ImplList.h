@@ -154,9 +154,10 @@ TEST(List, CallDestructor) {
         std::cout << "тут" << std::endl;
     }
     // Act
-    for (size_t i = (count - 1); i >= 0; ++i) {
-        std::cout << "тут1" << std::endl;
+    for (size_t i = 0; i < count; ++i) {
+        
         lst.erase(i);
+        std::cout << "тут1" << std::endl;
     }
     ASSERT_EQ(counter, val);
 

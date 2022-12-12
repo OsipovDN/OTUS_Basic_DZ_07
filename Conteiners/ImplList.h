@@ -97,24 +97,24 @@ void ImplList<T>::push_front(const T& val) {
 
 template <typename T>
 void ImplList<T>::erase(const size_t& pos) {
-	Node* temp = first;
-	Node* n=nullptr;
-	size_t i = 2;
-	if (pos == 1) {
-		first=temp->next;
-		delete temp;
-		size -= 1;
-	}
-	else {
-		while (i < pos) {
-			temp = temp->next;
-			i++;
+		Node* temp = first;
+		Node* n = nullptr;
+		size_t i = 2;
+		if (pos == 1) {
+			first = temp->next;
+			delete temp;
+			size -= 1;
 		}
-		n = temp->next;
-		temp->next = n->next;
-		delete n;
-		size -= 1;
-	}
+		else {
+			while (i < pos) {
+				temp = temp->next;
+				i++;
+			}
+			n = temp->next;
+			temp->next = n->next;
+			delete n;
+			size -= 1;
+		}
 }
 
 template <typename T>
