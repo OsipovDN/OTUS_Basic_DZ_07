@@ -2,8 +2,34 @@
 #include "ImplList.h"
 #include <iostream>
 
+template<typename T>
+class ListMock :public ImplList <T> {
+    struct Node {
+        T val;
+        Node* next;
+        //Node(const T& count) :val(count), next(nullptr) {}
+        ~Node() { ListMock::counter++; }
+    };
+    /*Node* first;
+    Node* last;*/
 
+public:
+    static int counter;
+    /*ListMock() :ImplList() {}*/
+    /*~ListMock() {
+        if (first != nullptr) {
+            Node* temp = first;
+            Node* buf = nullptr;
+            while (temp->next != nullptr) {
+                buf = temp->next;
+                delete temp;
+                temp = buf;
+            }
+            temp = nullptr;
+        }
+    }*/
 
+};
 
 struct ListFixture : public testing::Test {
     const int count = 10;
@@ -139,4 +165,21 @@ TEST(List, GetSize) {
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(lst.get_size(), size);
+}
+
+TEST(ListMock, CallDestructor) {
+    // Arrange
+    const size_t count = 10;
+    const size_t val = 10;
+    ListMock <size_t> lst;
+    lst.counter = 0;
+    /*for (size_t i = 0; i < count; ++i) {
+        lst.push_back(i);
+    }*/
+    // Act
+    for (size_t i = (count - 1); i >= 0; ++i) {
+        lst.erase(i);
+    }
+    ASSERT_EQ(lst.counter, val);
+
 }
