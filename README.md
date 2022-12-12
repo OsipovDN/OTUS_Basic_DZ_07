@@ -15,29 +15,29 @@ bool operator ==(const ImplVector <T>& obj) -оператор сравнения
 bool operator ==(const ImplList& obj) -оператор сравнения.
 
 Для двух контейнеров были реализованы следующие тесты:
-Vector.
-  InitializationContainer
-  EraseEnd
-  EraseFront
-  EraseMidlle
-  OperatorGetElement
-  CopyVector
-  MoveCopyVector
-VectorFixture.
-  PushBack
-  InsertFront
-  InsertInMiddle
-  GetSize
-List.
-  InitializationContainer
-  EraseEnd
-  EraseFront
-  EraseMidlle
-  GetSize
-ListFixture.
-  PushBack
-  InsertFront
-  InsertInMiddle
+  Vector
+InitializationContainer
+EraseEnd
+EraseFront
+EraseMidlle
+OperatorGetElement
+CopyVector
+MoveCopyVector
+ VectorFixture.
+PushBack
+InsertFront
+InsertInMiddle
+GetSize
+ List.
+InitializationContainer
+EraseEnd
+EraseFront
+EraseMidlle
+GetSize
+ ListFixture.
+PushBack
+InsertFront
+InsertInMiddle
   
 В ходе выполнения тестов в реализации контейнера ImplList были исправленны ошибки в методах insert() и erase().
 Так же была исправлена ошибка в реализации деструктора контейнера, которая при уничножении пустого объекта приводила к пробрасыванию исключения. 
