@@ -60,6 +60,7 @@ ImplList<T>::~ImplList() {
 			delete temp;
 			temp = buf;
 		}
+
 		temp = nullptr;
 	}
 }
