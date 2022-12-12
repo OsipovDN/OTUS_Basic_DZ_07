@@ -15,6 +15,7 @@ bool operator ==(const ImplVector <T>& obj) -оператор сравнения
 bool operator ==(const ImplList& obj) -оператор сравнения.
 
 Для двух контейнеров были реализованы следующие тесты:
+  
   Vector:
 InitializationContainer,
 EraseEnd,
