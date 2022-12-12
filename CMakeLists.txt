@@ -8,10 +8,10 @@ add_executable (
     ImplContainers.cpp
     )
 
-add_executable (
-    test_Containers
-    test/test_Containers.cpp
-    )
+#add_executable (
+#    test_Containers
+#    test/test_Containers.cpp
+#   )
 
 target_include_directories(
     ImplemContainers
@@ -22,24 +22,24 @@ target_include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
     )
 
-target_include_directories(
-    test_Containers PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
-)
-target_include_directories(
-    test_Containers PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/test
-)
+#target_include_directories(
+#    test_Containers PRIVATE
+#    ${CMAKE_CURRENT_SOURCE_DIR}/Conteiners
+#)
+#target_include_directories(
+#    test_Containers PRIVATE
+#    ${CMAKE_CURRENT_SOURCE_DIR}/test
+#)
 
-target_include_directories(
-    test_Containers PRIVATE
-    ${GTEST_INCLUDE_DIRS}
-)
+#target_include_directories(
+#    test_Containers PRIVATE
+#    ${GTEST_INCLUDE_DIRS}
+#)
 
-target_link_libraries(
-    test_Containers PRIVATE
-    ${GTEST_BOTH_LIBRARIES}
-)
+#target_link_libraries(
+#    test_Containers PRIVATE
+#    ${GTEST_BOTH_LIBRARIES}
+#)
 
 
 set_target_properties(ImplemContainers PROPERTIES
@@ -56,22 +56,22 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         -Werror
         -pedantic
     )
-    target_compile_options(test_Containers PRIVATE 
-        -g
-        -Wall
-        -Wextra
-        -Werror
-        -pedantic
-    )
+ #   target_compile_options(test_Containers PRIVATE 
+ #       -g
+ #       -Wall
+ #       -Wextra
+ #       -Werror
+ #       -pedantic
+ #   )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(ImplemContainers PRIVATE
         /EHsc
         /W4
         /WX
     )
-    target_compile_options(test_Containers PRIVATE
-        /EHsc
-        /W4
-        /WX
-    )
+#    target_compile_options(test_Containers PRIVATE
+#        /EHsc
+#        /W4
+#        /WX
+#    )
 endif()

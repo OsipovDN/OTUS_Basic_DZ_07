@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 template <typename T>
 class ImplVector {
@@ -6,6 +7,7 @@ public:
 	
 	class Iterator {
 	private:
+		//std::unique_ptr <ImplVector<T>> cont;
 		ImplVector<T>* cont;
 		size_t index;
 	public:
@@ -30,9 +32,10 @@ public:
 	explicit ImplVector(const ImplVector <T>& obj);
 	//NEW
 	explicit ImplVector(ImplVector <T>&& obj) noexcept;
-	~ImplVector() {
+	~ImplVector() = default;
+	/*~ImplVector() {
 		delete[]v_ptr;
-	}
+	}*/
 	void insert(size_t pos, int count, const T& val);
 	void insert(size_t pos, const T& val);
 	void push_back(const T& val);
@@ -49,7 +52,8 @@ public:
 	Iterator begin();
 	Iterator end();
 private:
-	T* v_ptr;
+	std::unique_ptr <T[]> v_ptr;
+	//T* v_ptr;
 	size_t size_vec;
 };
 
@@ -59,7 +63,8 @@ ImplVector<T>::ImplVector() :v_ptr(nullptr), size_vec(0) {}
 template <typename T>
 ImplVector<T>::ImplVector(size_t count, const T& val) : ImplVector() {
 	size_vec = count;
-	v_ptr = new T[size_vec];
+	v_ptr = std::make_unique<T[]>(size_vec);
+	//v_ptr = new T[size_vec];
 	for (size_t i = 0; i < size_vec; ++i) {
 		v_ptr[i] = val;
 	}
@@ -82,8 +87,11 @@ template <typename T>
 ImplVector<T>::ImplVector(ImplVector <T>&& obj)noexcept {
 	size_vec = obj.size_vec;
 	obj.size_vec = 0;
-	v_ptr = obj.v_ptr;
-	obj.v_ptr = nullptr;
+
+	v_ptr.reset(obj.v_ptr.release());
+	//v_ptr = obj.v_ptr;
+	//obj.v_ptr = nullptr;
+	//delete obj.v_ptr ;
 }
 
 template <typename T>
@@ -92,7 +100,8 @@ void  ImplVector<T>::insert(size_t pos, int count, const T& val) {
 		pos = 0;
 	if (pos > size_vec)
 		pos = size_vec;
-	T* res_v = new T[size_vec + count];
+	auto res_v= std::make_unique<T[]>(size_vec+count);
+	//T* res_v = new T[size_vec + count];
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
 	}
@@ -102,8 +111,10 @@ void  ImplVector<T>::insert(size_t pos, int count, const T& val) {
 	for (size_t i = (pos + count); i < (size_vec + count); ++i) {
 		res_v[i] = v_ptr[i - count];
 	}
-	delete[]v_ptr;
-	v_ptr = res_v;
+	//delete[]v_ptr;
+	v_ptr.reset(res_v.release());
+	//v_ptr = res_v.release();
+	//delete[]res_v;
 	size_vec += count;
 }
 
@@ -122,15 +133,19 @@ void  ImplVector<T>::erase(size_t pos) {
 		pos = 0;
 	if (pos > size_vec)
 		pos = size_vec;
-	T* res_v = new T[size_vec - 1];
+	auto res_v = std::make_unique<T[]>(size_vec -1);
+	//T* res_v = new T[size_vec - 1];
 	for (size_t i = 0; i < pos; ++i) {
 		res_v[i] = v_ptr[i];
 	}
 	for (size_t i = (pos-1); i < size_vec; ++i) {
 		res_v[i] = v_ptr[i + 1];
 	}
-	delete[]v_ptr;
-	v_ptr = res_v;
+	v_ptr.reset(res_v.release());
+	//v_ptr = res_v.release();
+	//delete[]res_v;
+	//delete[]v_ptr;
+	//v_ptr = res_v;
 	size_vec--;
 }
 
@@ -150,8 +165,10 @@ typename ImplVector< T>::Iterator ImplVector<T>::end() {
 }
 template <typename T>
 typename ImplVector <T>& ImplVector<T>::operator =(const  ImplVector <T>& obj) {
-	delete[]v_ptr;
-	v_ptr = new T[obj.size()];
+	v_ptr.reset();
+	//delete[]v_ptr;
+	v_ptr = std::make_unique<T[]>(obj.size());
+	//v_ptr = new T[obj.size()];
 	size_vec = obj.size();
 	for (size_t i = 0; i < size_vec; ++i) {
 		v_ptr[i] = obj[i];
