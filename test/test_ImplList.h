@@ -148,16 +148,13 @@ TEST(List, CallDestructor) {
     const size_t count = 10;
     const size_t val = 10;
     ImplList <Type> lst;
-    counter = 0;
     for (size_t i = 0; i < count; ++i) {
         lst.push_back(Type());
-        std::cout << "тут" << std::endl;
     }
     // Act
+    counter = 0;
     for (size_t i = 0; i < count; ++i) {
-        
-        lst.erase(i);
-        std::cout << "тут1" << std::endl;
+        lst.erase(1);
     }
     ASSERT_EQ(counter, val);
 

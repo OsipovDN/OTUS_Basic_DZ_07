@@ -94,9 +94,9 @@ namespace conteiners {
 		lst1.push_front(10);
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
-
-		std::cout << "Удаление 2-ого элемента из списка" << std::endl;
+		std::cout << "Удаление 2-ого элемента из списка" << std::endl<< std::endl;
 		lst1.erase(2);
+		std::cout<< std::endl << std::endl;
 		std::cout << "Size = " << lst1.get_size() << std::endl;
 		lst1.print();
 		std::cout << std::endl;
