@@ -6,20 +6,14 @@
 Для удобства в реализации контейнера ImplVector были дополнительно реализованы следующие методы:
 
 ImplVector(const ImplVector <T>& obj) -конструктор копирования.
-  
 ImplVector(ImplVector <T>&& obj)  -move- конструктор (как дополнение к прошлому домашнему заданию).
-  
 ImplVector <T>& operator =(const  ImplVector <T>& obj)  -оператор копирующего присваивания.
-  
-ImplVector <T>& operator =(ImplVector <T>&& obj)  -оператор перемещения (как дополнение к прошлому домашнему заданию).
-  
+ImplVector <T>& operator =(ImplVector <T>&& obj)  -оператор перемещения (как дополнение к прошлому домашнему заданию). 
 bool operator ==(const ImplVector <T>& obj) -оператор сравнения.
 
 В контейнере ImplList были добавлены следующие методы:
   
 bool operator ==(const ImplList& obj) -оператор сравнения.
-  
-
 Для двух контейнеров были реализованы следующие тесты:
   
   Vector:
