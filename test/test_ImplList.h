@@ -2,8 +2,10 @@
 #include "ImplList.h"
 #include <iostream>
 
-
-
+size_t counter;
+    struct Type {
+        ~Type() { counter++; }
+    };
 
 struct ListFixture : public testing::Test {
     const int count = 10;
@@ -139,4 +141,21 @@ TEST(List, GetSize) {
     // Assert
     std::cout << "Checking the size of the container" << std::endl;
     ASSERT_EQ(lst.get_size(), size);
+}
+
+TEST(List, CallDestructor) {
+    // Arrange
+    const size_t count = 10;
+    const size_t val = 10;
+    ImplList <Type> lst;
+    for (size_t i = 0; i < count; ++i) {
+        lst.push_back(Type());
+    }
+    // Act
+    counter = 0;
+    for (size_t i = 0; i < count; ++i) {
+        lst.erase(1);
+    }
+    ASSERT_EQ(counter, val);
+
 }

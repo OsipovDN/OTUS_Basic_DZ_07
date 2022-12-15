@@ -1,6 +1,9 @@
 # OTUS_Basic_DZ_07
 Работа с UNIT-тестами
 
+Implementation_Test_CallDestructor
+Дорабатываю реализацию теста для проверки вызова деструкторов объектов контейнера ImplList
+=======
 В данной работе выполнено основное задание и дополнительные пункты 1 и 3.
 
 Для удобства в реализации контейнера ImplVector были дополнительно реализованы следующие методы:
@@ -36,7 +39,8 @@ InitializationContainer,
 EraseEnd,
 EraseFront,
 EraseMidlle,
-GetSize.
+GetSize,
+CallDestructor.
   
  ListFixture:
 PushBack,

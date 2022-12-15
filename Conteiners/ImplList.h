@@ -15,7 +15,7 @@ public:
 	ImplList() :first(nullptr), last(nullptr), size(0) {}
 	explicit ImplList(const T& val);
 	ImplList(const size_t& count, const T& val);
-	virtual ~ImplList();
+	~ImplList();
 	bool is_empty()const;
 	void push_back(const T& val);
 	void push_front(const T& val);
@@ -60,6 +60,7 @@ ImplList<T>::~ImplList() {
 			delete temp;
 			temp = buf;
 		}
+
 		temp = nullptr;
 	}
 }
@@ -96,24 +97,24 @@ void ImplList<T>::push_front(const T& val) {
 
 template <typename T>
 void ImplList<T>::erase(const size_t& pos) {
-	Node* temp = first;
-	Node* n=nullptr;
-	size_t i = 2;
-	if (pos == 1) {
-		first=temp->next;
-		delete temp;
-		size -= 1;
-	}
-	else {
-		while (i < pos) {
-			temp = temp->next;
-			i++;
+		Node* temp = first;
+		Node* n = nullptr;
+		size_t i = 2;
+		if (pos == 1) {
+			first = temp->next;
+			delete temp;
+			size -= 1;
 		}
-		n = temp->next;
-		temp->next = n->next;
-		delete n;
-		size -= 1;
-	}
+		else {
+			while (i < pos) {
+				temp = temp->next;
+				i++;
+			}
+			n = temp->next;
+			temp->next = n->next;
+			delete n;
+			size -= 1;
+		}
 }
 
 template <typename T>
